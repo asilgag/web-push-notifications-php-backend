@@ -12,6 +12,16 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
+     * @Route("/", name="homepage")
+     */
+    public function indexAction()
+    {
+        return $this->redirect(
+            $this->generateUrl('show_subscriptions')
+        );
+    }
+
+    /**
      * @Route("/admin/show-subscriptions", name="show_subscriptions")
      */
     public function showSubscriptionsAction($id)
