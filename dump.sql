@@ -53,8 +53,8 @@ INSERT INTO `event` (`id`, `title`, `start_date`, `venue`, `speaker`, `icon`) VA
 (12, 'DESCANSO', '2016-11-25 11:35:00', 'Sala Carpa', '', ''),
 (13, 'El proceso de transformación digital del museo Thyssen-Bornemisza', '2016-11-25 12:15:00', 'Capilla', 'Museo Thyssen-Bornemisza', '/images/programa/museo.png'),
 (14, 'Las claves de la transformación digital. ¿Qué podemos aprender de la experiencia del Grupo Prisa para nuestras empresas?', '2016-11-25 13:30:00', 'Capilla', 'Noelia Fernández', '/images/programa/noelia.jpg'),
-(15, 'COCKTAIL', '2016-11-25 15:00:00', 'Sala Carpa', '', '');
-(16, 'Taller de Risoterapia', '2016-11-25 17:00:00', 'Sala Capilla', '', '');
+(15, 'COCKTAIL', '2016-11-25 15:00:00', 'Sala Carpa', '', ''),
+(16, 'Taller de Risoterapia', '2016-11-25 17:00:00', 'Sala Capilla', '', ''),
 (17, 'FIESTA', '2016-11-25 19:00:00', 'Bar Txintxarri', '', '');
 
 -- --------------------------------------------------------
