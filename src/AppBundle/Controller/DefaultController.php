@@ -177,8 +177,8 @@ class DefaultController extends Controller
                 $eventsRepository = $em->getRepository('AppBundle:Event');
                 $allEvents = $eventsRepository->findAll();
                 foreach ($allEvents as $event) {
-                    error_log($event->getId());
-                    error_log(print_r($subscriptionDataToSave->events,1));
+                    // error_log($event->getId());
+                    // error_log(print_r($subscriptionDataToSave->events,1));
                     if (in_array($event->getId(), $subscriptionDataToSave->events)) {
                         $subscription->addEvent($event);
                     }
