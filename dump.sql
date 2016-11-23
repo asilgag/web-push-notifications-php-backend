@@ -25,7 +25,6 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `event`
 --
-TRUNCATE TABLE `event`;
 CREATE TABLE `event` (
   `id` int(11) NOT NULL,
   `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -63,7 +62,6 @@ INSERT INTO `event` (`id`, `title`, `start_date`, `venue`, `speaker`, `icon`) VA
 --
 -- Table structure for table `migration_versions`
 --
-TRUNCATE TABLE `migration_versions`;
 CREATE TABLE `migration_versions` (
   `version` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -80,7 +78,6 @@ INSERT INTO `migration_versions` (`version`) VALUES
 --
 -- Table structure for table `subscription`
 --
-TRUNCATE TABLE `subscription`;
 CREATE TABLE `subscription` (
   `id` int(11) NOT NULL,
   `endpoint` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -93,7 +90,6 @@ CREATE TABLE `subscription` (
 --
 -- Table structure for table `subscription_event`
 --
-TRUNCATE TABLE `subscription_event`;
 CREATE TABLE `subscription_event` (
   `subscription_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL
