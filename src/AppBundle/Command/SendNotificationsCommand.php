@@ -34,6 +34,9 @@ class SendNotificationsCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        // Wait 3 seconds to ensure cron execution takes place in current minute
+        sleep(3);
+
         $em = $this->getContainer()->get('doctrine')->getManager();
         $subscriptionRepository = $em->getRepository('AppBundle:Subscription');
         $startDate = new \DateTime(date("Y-m-d H:i:00"));
