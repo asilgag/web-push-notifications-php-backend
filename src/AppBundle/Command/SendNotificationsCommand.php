@@ -21,7 +21,7 @@ class SendNotificationsCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('wpa:send-notifications')
+            ->setName('pwa:send-notifications')
             ->setDescription('Send web push notifications');
     }
 
