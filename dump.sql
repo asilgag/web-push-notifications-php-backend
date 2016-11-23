@@ -41,21 +41,22 @@ CREATE TABLE `event` (
 
 INSERT INTO `event` (`id`, `title`, `start_date`, `venue`, `speaker`, `icon`) VALUES
 (1, 'APERTURA XII OPEN BIKO', '2016-11-25 09:00:00', '', '', ''),
-(2, 'Trabajando con Sketch e Invisión', '2016-11-25 09:10:00', 'Carpa', 'Aritz Oiaga', '/images/programa/aritz-oiaga.jpg'),
-(3, 'Cómo creamos un e-commerce para el sector de la restauración', '2016-11-25 09:10:00', 'Sala compartida 1', 'Virgilio Echauri y Carmelo Martínez', '/images/programa/virgilio-echauri.jpg'),
-(4, 'Atom vs PhpStorm, el editor definitivo', '2016-11-25 09:10:00', 'Sala compartida 2', 'David Gallego y Pablo Albizu', '/images/programa/gallego-pablo.jpg'),
-(5, 'Conectando el online con el offline en una experiencia omnicanal. 3 casos: Carrefour, Movistar y Museo Guggenheim', '2016-11-25 10:00:00', 'Carpa', 'Juan Narro y Wila', '/images/programa/narro-wila.jpg'),
-(6, 'El futuro de la web móvil: Progressive Web Apps', '2016-11-25 10:00:00', 'Sala compartida 1', 'Alberto Silva', '/images/programa/alberto-silva.jpg'),
-(7, 'Cómo trabajar con código legado', '2016-11-25 10:00:00', 'Sala compartida 2', '540', '/images/programa/540.png'),
-(8, 'Triplica la conversión de tu landing page', '2016-11-25 10:50:00', 'Carpa', 'Susana Heredia y Aritz Oiaga', '/images/programa/susana-oiaga.jpg'),
-(9, 'Computational design', '2016-11-25 10:50:00', 'Sala compartida 1', 'karlos g liberal', '/images/programa/patxangas.jpg'),
-(10, 'Adios float, hola Flex Box! Maquetación de layouts para los navegadores de hoy', '2016-11-25 10:50:00', 'Sala compartida 2', 'Rubén Bernárdez', '/images/programa/ruben-bernardez.jpg'),
-(11, 'La última apuesta de Google: Physical Web', '2016-11-25 11:05:00', 'Sala compartida 1', 'karlos g liberal', '/images/programa/patxangas.jpg'),
-(12, 'Cómo creamos un App que reconoce piezas de un catálogo de miles de referencias', '2016-11-25 11:05:00', 'Sala compartida 2', 'Virgilio Echauri y Carmelo Martínez', '/images/programa/virgilio-echauri.jpg'),
-(13, 'DESCANSO', '2016-11-25 11:35:00', '', '', ''),
-(14, 'El proceso de transformación digital del museo Thyssen-Bornemisza', '2016-11-25 12:15:00', 'Capilla', 'Museo Thyssen-Bornemisza', '/images/programa/museo.png'),
-(15, 'Las claves de la transformación digital. ¿Qué podemos aprender de la experiencia del Grupo Prisa para nuestras empresas?', '2016-11-25 13:30:00', 'Capilla', 'Noelia Fernández', '/images/programa/noelia.jpg'),
-(16, 'COCKTAIL', '2016-11-25 14:30:00', '', '', '');
+(2, 'Trabajando con Sketch e Invisión', '2016-11-25 09:10:00', 'Sala Carpa', 'Aritz Oiaga', '/images/programa/aritz-oiaga.jpg'),
+(3, 'Cómo creamos un e-commerce para el sector de la restauración', '2016-11-25 09:10:00', 'Sala Barquerillos 1', 'Virgilio Echauri y Carmelo Martínez', '/images/programa/virgilio-echauri.jpg'),
+(4, 'Atom vs PhpStorm, el editor definitivo', '2016-11-25 09:10:00', 'Sala Barquerillos 2', 'David Gallego y Pablo Albizu', '/images/programa/gallego-pablo.jpg'),
+(5, 'Conectando el online con el offline en una experiencia omnicanal. 3 casos: Carrefour, Movistar y Museo Guggenheim', '2016-11-25 10:00:00', 'Sala Carpa', 'Juan Narro y Wila', '/images/programa/narro-wila.jpg'),
+(6, 'El futuro de la web móvil: Progressive Web Apps', '2016-11-25 10:00:00', 'Sala Barquerillos 1', 'Alberto Silva', '/images/programa/alberto-silva.jpg'),
+(7, 'Cómo trabajar con código legado', '2016-11-25 10:00:00', 'Sala Barquerillos 2', '540', '/images/programa/540.png'),
+(8, 'Triplica la conversión de tu landing page', '2016-11-25 10:50:00', 'Sala Carpa', 'Susana Heredia y Aritz Oiaga', '/images/programa/susana-oiaga.jpg'),
+(9, 'Computational design, hacia un diseño mestizo', '2016-11-25 10:50:00', 'Sala Barquerillos 1', 'karlos g liberal', '/images/programa/patxangas.jpg'),
+(10, 'Adios float, hola Flex Box! Maquetación de layouts para los navegadores de hoy', '2016-11-25 10:50:00', 'Sala Barquerillos 2', 'Rubén Bernárdez', '/images/programa/ruben-bernardez.jpg'),
+(11, 'Cómo creamos un App que reconoce piezas de un catálogo de miles de referencias', '2016-11-25 11:05:00', 'Sala Barquerillos 2', 'Virgilio Echauri y Carmelo Martínez', '/images/programa/virgilio-echauri.jpg'),
+(12, 'DESCANSO', '2016-11-25 11:35:00', 'Sala Carpa', '', ''),
+(13, 'El proceso de transformación digital del museo Thyssen-Bornemisza', '2016-11-25 12:15:00', 'Capilla', 'Museo Thyssen-Bornemisza', '/images/programa/museo.png'),
+(14, 'Las claves de la transformación digital. ¿Qué podemos aprender de la experiencia del Grupo Prisa para nuestras empresas?', '2016-11-25 13:30:00', 'Capilla', 'Noelia Fernández', '/images/programa/noelia.jpg'),
+(15, 'COCKTAIL', '2016-11-25 15:00:00', 'Sala Carpa', '', '');
+(16, 'Taller de Risoterapia', '2016-11-25 17:00:00', 'Sala Capilla', '', '');
+(17, 'FIESTA', '2016-11-25 19:00:00', 'Bar Txintxarri', '', '');
 
 -- --------------------------------------------------------
 
