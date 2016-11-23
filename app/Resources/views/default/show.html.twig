@@ -11,8 +11,7 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Endpoint</th>
-                    <th>Events</th>
+                    <th>Endpoint and events</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -25,14 +24,15 @@
                         </td>
                         <td style="overflow-wrap: break-word;word-wrap: break-word; word-break: break-all;">
                             {{ subscription.endpoint }}
-                        </td>
-                        <td>
-                            {% for event in subscription.events %}
-                                <a href="{{ path('send_notification', {'id': subscription.id, 'eventId': event.id}) }}">
-                                    #{{ event.id }}: {{ event.title }}
-                                </a>
-                                <br>
-                            {% endfor %}
+                            <ul>
+                                {% for event in subscription.events %}
+                                    <li>#{{ event.id }}:
+                                        <a href="{{ path('send_notification', {'id': subscription.id, 'eventId': event.id}) }}">
+                                            {{ event.title }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
                         </td>
                     </tr>
                 {% endfor %}
@@ -44,22 +44,22 @@
 {% endblock %}
 
 {% block stylesheets %}
-<style>
-    body { background: #F5F5F5; font: 12px/1.5 sans-serif; }
-    h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
-    h1 { font-size: 36px; }
-    h2 { font-size: 21px; margin-bottom: 1em; }
-    p { margin: 0 0 1em 0; }
-    a { color: #0000F0; }
-    a:hover { text-decoration: none; }
-    code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
-    table{border-collapse: collapse;}
-    #wrapper { background: #FFF; margin: 1em auto; width: 95%; }
-    #container { padding: 2em; }
-    #welcome, #status { margin-bottom: 2em; }
-    #welcome h1 span { display: block; font-size: 75%; }
-    #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
-    #icon-book { display: none; }
+    <style>
+        body { background: #F5F5F5; font: 12px/1.5 sans-serif; }
+        h1, h2 { line-height: 1.2; margin: 0 0 .5em; }
+        h1 { font-size: 36px; }
+        h2 { font-size: 21px; margin-bottom: 1em; }
+        p { margin: 0 0 1em 0; }
+        a { color: red; }
+        a:hover { text-decoration: none; }
+        code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
+        table{border-collapse: collapse;}
+        #wrapper { background: #FFF; margin: 1em auto; width: 95%; }
+        #container { padding: 2em; }
+        #welcome, #status { margin-bottom: 2em; }
+        #welcome h1 span { display: block; font-size: 75%; }
+        #icon-status, #icon-book { float: left; height: 64px; margin-right: 1em; margin-top: -4px; width: 64px; }
+        #icon-book { display: none; }
 
-</style>
+    </style>
 {% endblock %}
