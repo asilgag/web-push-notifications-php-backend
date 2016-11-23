@@ -55,7 +55,7 @@ class WebPushNotificationService
             'config' => [
                 'body' => $body,
                 'icon' => $event->getIcon() ? : '/images/app-shell/master-icon.png',
-                'badge' => '/images/touch/favicon-32x32.png'
+                'badge' => '/images/touch/favicon-16x16.png'
                 // 'badge' => $event->getIcon() ? : '/images/app-shell/master-icon.png'
             ]
         ];
