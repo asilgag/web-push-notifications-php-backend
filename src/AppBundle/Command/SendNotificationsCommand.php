@@ -21,7 +21,7 @@ class SendNotificationsCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('wpn:send-notifications')
+            ->setName('wpa:send-notifications')
             ->setDescription('Send web push notifications');
     }
 
@@ -36,8 +36,8 @@ class SendNotificationsCommand extends ContainerAwareCommand
     {
         $em = $this->getContainer()->get('doctrine')->getManager();
         $subscriptionRepository = $em->getRepository('AppBundle:Subscription');
-        // $startDate = new \DateTime(date("Y-m-d H:i:00"));
-        $startDate = new \DateTime('2016-11-25 10:00:00');
+        $startDate = new \DateTime(date("Y-m-d H:i:00"));
+        // $startDate = new \DateTime('2016-11-25 10:00:00');
         $subscriptions = $subscriptionRepository->findByEventStartDate($startDate);
 
         $webPushNotificationService = $this->getContainer()->get('web_push_notification_service');
