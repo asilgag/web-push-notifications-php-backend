@@ -1,0 +1,9 @@
+services:
+  app.header_listener:
+    class: AppBundle\EventListener\HeaderListener
+    tags:
+      - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+
+  web_push_notification_service:
+    class: AppBundle\Service\WebPushNotificationService
+    arguments: ["@doctrine.orm.entity_manager", "@minishlink_web_push"]

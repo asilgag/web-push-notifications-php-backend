@@ -1,0 +1,50 @@
+version: '2'
+services:
+  mysql_data:
+      image: mysql:latest
+      volumes:
+          - /var/lib/mysql
+      command: "true"
+
+  mysql:
+      build: ./docker/mysql/
+      volumes_from:
+          - mysql_data
+      volumes:
+      - ./docker/mysql/data:/docker-entrypoint-initdb.d
+      environment:
+          MYSQL_ROOT_PASSWORD: secret
+          MYSQL_DATABASE: symfony
+          MYSQL_USER: symfony
+          MYSQL_PASSWORD: symfony
+
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      ports:
+          - 8081:80
+      depends_on:
+          - mysql
+      environment:
+          PMA_HOST: mysql
+
+  web:
+      build:
+        context: ./docker/apache/
+        # Environment variables
+        args:
+          - USER
+          - USER_ID
+      ports:
+          - 8080:80
+      depends_on:
+          - mysql
+      volumes_from:
+          - web_data
+
+  web_data:
+      image: php:7.0-apache
+      volumes:
+          - .:/var/www/html
+          - ~/.ssh:/home/${USER}/.ssh
+          - ~/.bash_aliases:/home/${USER}/.bash_aliases
+      command: "true"
