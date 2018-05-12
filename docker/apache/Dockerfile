@@ -1,4 +1,4 @@
-FROM php:5.6-apache
+FROM php:7.1-apache
 
 ARG USER
 ARG USER_ID
@@ -6,13 +6,10 @@ ARG USER_ID
 #==============================================================================
 # OS Setup
 #==============================================================================
-# Apt update & upgrade
-RUN apt-get -qqy update
-RUN apt-get -qqy upgrade
 
 # Locale
 ENV LOCALE es_ES.UTF-8
-RUN apt-get -qqy install locales
+RUN apt-get -qqy update && apt-get -qqy install locales
 RUN sed -i -e "s/# $LOCALE/$LOCALE/" /etc/locale.gen
 RUN echo "LANG=$LOCALE">/etc/default/locale
 RUN dpkg-reconfigure --frontend=noninteractive locales
@@ -25,14 +22,14 @@ RUN dpkg-reconfigure --frontend noninteractive tzdata
 RUN echo "date.timezone = \"$TZ\";" > /usr/local/etc/php/conf.d/timezone.ini
 
 # Vi editor
-RUN apt-get -qqy install vim
+RUN apt-get -qqy update && apt-get -qqy install vim
 RUN echo "export TERM=xterm" >> /etc/bash.bashrc
 
 # Git
-RUN apt-get -qqy install git
+RUN apt-get -qqy update && apt-get -qqy install git
 
 # Sudo
-RUN apt-get -qqy install sudo
+RUN apt-get -qqy update && apt-get -qqy install sudo
 
 # Working dir
 WORKDIR /var/www/html
@@ -41,7 +38,7 @@ WORKDIR /var/www/html
 # LAMP Setup
 #==============================================================================
 # Composer
-RUN apt-get -qqy install zip unzip zlib1g-dev
+RUN apt-get -qqy update && apt-get -qqy install zip unzip zlib1g-dev
 RUN docker-php-ext-install zip
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
 # alias to disable xdebug  when running composer command
@@ -70,23 +67,23 @@ RUN docker-php-ext-install pdo pdo_mysql
 # opcache
 RUN docker-php-ext-install opcache
 RUN { \
-		echo 'opcache.memory_consumption=128'; \
-		echo 'opcache.interned_strings_buffer=8'; \
-		echo 'opcache.max_accelerated_files=4000'; \
-		echo 'opcache.revalidate_freq=2'; \
-		echo 'opcache.fast_shutdown=1'; \
-		echo 'opcache.enable_cli=1'; \
-	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
+  echo 'opcache.memory_consumption=128'; \
+  echo 'opcache.interned_strings_buffer=8'; \
+  echo 'opcache.max_accelerated_files=4000'; \
+  echo 'opcache.revalidate_freq=2'; \
+  echo 'opcache.fast_shutdown=1'; \
+  echo 'opcache.enable_cli=1'; \
+  } > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
 #xdebug
 RUN pecl install xdebug
 RUN { \
-		echo 'zend_extension=xdebug.so'; \
-		echo 'xdebug.remote_enable=on'; \
-		echo 'xdebug.remote_connect_back=on'; \
-		echo 'xdebug.remote_port=9000'; \
-		echo 'xdebug.profiler_enable=off'; \
-	} > /usr/local/etc/php/conf.d/xdebug.ini
+  echo 'zend_extension=xdebug.so'; \
+  echo 'xdebug.remote_enable=on'; \
+  echo 'xdebug.remote_connect_back=on'; \
+  echo 'xdebug.remote_port=9000'; \
+  echo 'xdebug.profiler_enable=off'; \
+  } > /usr/local/etc/php/conf.d/xdebug.ini
 
 # Apache
 RUN a2enmod rewrite
@@ -104,8 +101,8 @@ RUN ln -sf /dev/stderr /var/log/apache2/error.log
 # LOCAL TO THIS PROJECT
 #==============================================================================
 RUN apt-get -qqy install libgmp-dev && \
-ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h && \
-docker-php-ext-install gmp
+  ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h && \
+  docker-php-ext-install gmp
 
 # Cleanup some things
 RUN apt-get -q autoclean && rm -rf /var/lib/apt/lists/*
